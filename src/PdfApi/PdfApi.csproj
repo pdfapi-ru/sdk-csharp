@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <!-- netstandard2.0 — чтобы библиотеку можно было подключить и к .NET Framework 4.6.1+. -->
+    <TargetFrameworks>net8.0;netstandard2.0</TargetFrameworks>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <RootNamespace>PdfApi</RootNamespace>
+    <AssemblyName>PdfApi</AssemblyName>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+
+    <PackageId>PdfApi</PackageId>
+    <Version>0.1.0</Version>
+    <Authors>pdfapi</Authors>
+    <Description>Официальный .NET SDK pdfapi: HTML, URL, Markdown и Office в PDF одним вызовом.</Description>
+    <PackageTags>pdf;html-to-pdf;markdown;docx;api</PackageTags>
+    <PackageProjectUrl>https://pdfapi.ru</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+    <PackageReference Include="System.Text.Json" Version="8.0.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="PdfApi.Tests" />
+    <None Include="../../README.md" Pack="true" PackagePath="/" />
+  </ItemGroup>
+
+</Project>
